@@ -71,7 +71,8 @@
                     "caseInsensitive": true
                 }
             }
-        ]
+        ],
+        "react/function-component-definition": "off"
     },
     "settings": {
         "import/resolver": {
