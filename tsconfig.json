@@ -18,7 +18,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "useUnknownInCatchVariables": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  },
+  "paths": {
+    "@api": ["src/api/*"],
+    "@assets": ["src/assets/*"],
+    "@components": ["src/components/*"],
+    "@pages": ["src/pages/*"],
+    "@routes": ["src/routes/*"],
+    "@stores": ["src/stores/*"],
+    "@theme": ["src/theme/*"],
+    "@utils": ["src/utils/*"],
   },
   "include": [
     "src"

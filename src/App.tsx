@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { WeatherApi } from './api';
+import { getLocation } from './utils';
 
 const App: React.FC = () => {
+  const weatherApi = new WeatherApi();
+
+  const getWeather = useCallback(
+    async (lat: string, log: string): Promise<void> => {
+      const response = await weatherApi.getGeoCoordinates(lat, log);
+      console.log(response);
+    },
+    [weatherApi],
+  );
+
+  useEffect(() => {
+    getLocation();
+    getWeather('-20.7717508', '-41.5612325');
+  }, [getWeather]);
   return (
     <div>
       <p>
