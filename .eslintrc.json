@@ -7,14 +7,14 @@
         "plugin:react/recommended",
         "airbnb",
         "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 13,
+        "ecmaVersion": 2021,
         "sourceType": "module"
     },
     "plugins": [
@@ -41,6 +41,35 @@
             {
                 "ts": "never",
                 "tsx": "never"
+            }
+        ],
+        "import/order": [
+            "error",
+            {
+                "pathGroups": [
+                    {
+                    "pattern": "react",
+                    "group": "external",
+                    "position": "before"
+                    },
+                    {
+                    "pattern": "~/**",
+                    "group": "parent",
+                    "position": "before"
+                    },
+                    {
+                    "pattern": "@*/**",
+                    "group": "external",
+                    "position": "after"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react"
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
             }
         ]
     },
