@@ -22,18 +22,19 @@
     "useUnknownInCatchVariables": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-  },
-  "paths": {
-    "@api": ["src/api/*"],
-    "@assets": ["src/assets/*"],
-    "@components": ["src/components/*"],
-    "@pages": ["src/pages/*"],
-    "@routes": ["src/routes/*"],
-    "@stores": ["src/stores/*"],
-    "@theme": ["src/theme/*"],
-    "@utils": ["src/utils/*"],
+    "strictNullChecks": false,
+    "rootDir": ".",
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["*"],
+      "*": ["./src/@types/*.ts"],
+    },
   },
   "include": [
+    "src/**/*",
     "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

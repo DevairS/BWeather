@@ -1,10 +1,20 @@
-import { makeAutoObservable } from "mobx";
-import { WeatherApi } from '@api';
+// eslint-disable-next-line import/no-unresolved
+import { makeAutoObservable } from 'mobx';
 
 class AppStore {
-  constructor(){
+  constructor() {
     makeAutoObservable(this);
-    this.
   }
 
+  userLocation: GeolocationPosition = null;
+
+  getGeolocation = (): void => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.userLocation = position;
+      });
+    }
+  };
 }
+
+export default AppStore;
