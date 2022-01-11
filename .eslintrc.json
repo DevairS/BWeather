@@ -73,7 +73,9 @@
             }
         ],
         "react/function-component-definition": "off",
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "no-shadow": "off",
+        "react/jsx-props-no-spreading": "off"
     },
     "settings": {
         "import/resolver": {
