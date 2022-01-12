@@ -12,8 +12,10 @@ class WeatherStore {
 
   weatherData: Weather.Data = null;
 
-  getWeather = async (lat: number, log: number): Promise<void> => {
-    this.weatherData = await this.weatherApi.getGeoCoordinates(lat, log);
+  getWeather = async (lat: number, log: number): Promise<Weather.Data> => {
+    const data = await this.weatherApi.getGeoCoordinates(lat, log);
+    this.weatherData = data;
+    return data;
   };
 }
 

@@ -21,4 +21,7 @@ export default createGlobalStyle`
   div {
     display: flex;
   }
+  p {
+    color: #fff;
+  }
 `;

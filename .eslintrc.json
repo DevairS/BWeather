@@ -75,7 +75,8 @@
         "react/function-component-definition": "off",
         "class-methods-use-this": "off",
         "no-shadow": "off",
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off"
     },
     "settings": {
         "import/resolver": {
