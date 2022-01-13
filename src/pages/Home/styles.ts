@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import { Fundo } from '~/assets/images';
+import { radius } from '~/theme';
+import { pxToRem } from '~/utils';
+
+const { mediumRadius } = radius;
 
 export const Container = styled.div`
   background-image: url(${Fundo});
@@ -12,12 +16,13 @@ export const Container = styled.div`
 `;
 
 export const ContainerLocation = styled.div`
-  justify-content: center;
-  margin: 40px 80px;
-  padding: 8px;
-  border-radius: 12px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: ${pxToRem(40)} ${pxToRem(80)};
+  padding: ${pxToRem(8)};
+  border-radius: ${mediumRadius};
   background-color: #b4daf3;
-  letter-spacing: 3px;
+  letter-spacing: ${pxToRem(3)};
 `;
 
 export const TextLocation = styled.p`
@@ -27,11 +32,17 @@ export const TextLocation = styled.p`
 
 export const ContainerTemp = styled.div`
   justify-content: center;
-  margin: 40px 0;
+  align-items: center;
+  margin: ${pxToRem(40)} 0;
 `;
 
 export const TextTemp = styled.p`
-  font-size: 6rem;
+  font-size: ${pxToRem(144)};
+`;
+
+export const TextCelsius = styled.p`
+  font-size: ${pxToRem(72)};
+  margin-bottom: ${pxToRem(40)};
 `;
 
 export const ContainerClimate = styled.div`
@@ -43,6 +54,19 @@ export const ContainerClimate = styled.div`
 export const ContainerClimateDetails = styled.div``;
 
 export const ContainerMaxMinTemp = styled.div`
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  margin: 10px 20px;
+  margin: ${pxToRem(10)} ${pxToRem(20)};
+`;
+
+export const IconImage = styled.img`
+  width: ${pxToRem(72)};
+  height: ${pxToRem(72)};
+`;
+
+export const ContainerButton = styled.div`
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `;

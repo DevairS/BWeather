@@ -5,6 +5,7 @@ import Home from './Home';
 
 const HomeContainer: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const [icon, setIcon] = useState<string>('');
   const { weather, app } = useStores();
 
   const getWeather = useCallback(
@@ -20,6 +21,11 @@ const HomeContainer: React.FC = () => {
       app.userLocation.coords.latitude,
       app.userLocation.coords.longitude,
     );
+
+    const iconImport = await import(
+      `~/assets/icons/${weather.weatherData.weather[0].icon}.svg`
+    );
+    setIcon(iconImport.default);
     setLoading(true);
   }, [app, getWeather]);
 
@@ -32,7 +38,7 @@ const HomeContainer: React.FC = () => {
     return <h1>carregado...</h1>;
   }
 
-  return <Home weatherData={weather.weatherData} />;
+  return <Home weatherData={weather.weatherData} icon={icon} />;
 };
 
 export default observer(HomeContainer);

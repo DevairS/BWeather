@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/no-unresolved
 import { makeAutoObservable } from 'mobx';
 import { WeatherApi } from '~/api';
+import { formatWeatherDate } from '~/utils';
 
 class WeatherStore {
   weatherApi: WeatherApi;
@@ -14,7 +14,7 @@ class WeatherStore {
 
   getWeather = async (lat: number, log: number): Promise<Weather.Data> => {
     const data = await this.weatherApi.getGeoCoordinates(lat, log);
-    this.weatherData = data;
+    this.weatherData = formatWeatherDate(data);
     return data;
   };
 }

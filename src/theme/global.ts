@@ -8,12 +8,12 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
   }
   input, button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
   button {
     cursor: pointer;
