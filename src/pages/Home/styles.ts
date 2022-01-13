@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Fundo } from '~/assets/images';
-import { radius } from '~/theme';
+import { radius, shadow } from '~/theme';
 import { pxToRem } from '~/utils';
 
 const { mediumRadius } = radius;
@@ -21,8 +21,9 @@ export const ContainerLocation = styled.div`
   margin: ${pxToRem(40)} ${pxToRem(80)};
   padding: ${pxToRem(8)};
   border-radius: ${mediumRadius};
-  background-color: #b4daf3;
+  background-color: #ffffff5c;
   letter-spacing: ${pxToRem(3)};
+  ${shadow};
 `;
 
 export const TextLocation = styled.p`
@@ -41,8 +42,10 @@ export const TextTemp = styled.p`
 `;
 
 export const TextCelsius = styled.p`
-  font-size: ${pxToRem(72)};
-  margin-bottom: ${pxToRem(40)};
+  position: absolute;
+  right: 80px;
+  font-size: ${pxToRem(32)};
+  margin-bottom: ${pxToRem(74)};
 `;
 
 export const ContainerClimate = styled.div`

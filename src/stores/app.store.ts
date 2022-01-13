@@ -17,7 +17,6 @@ class AppStore {
 
   setGeolocation = async (): Promise<void> => {
     this.userLocation = await this.getGeolocation();
-    console.log(this.userLocation);
   };
 }
 
