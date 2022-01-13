@@ -9,7 +9,7 @@ declare namespace Weather {
         id: number;
         main: string;
         description: string;
-        icon: string;
+        icon: Icon.Name;
       },
     ];
     base: string;

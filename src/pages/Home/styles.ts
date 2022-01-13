@@ -60,11 +60,6 @@ export const ContainerMaxMinTemp = styled.div`
   margin: ${pxToRem(10)} ${pxToRem(20)};
 `;
 
-export const IconImage = styled.img`
-  width: ${pxToRem(72)};
-  height: ${pxToRem(72)};
-`;
-
 export const ContainerButton = styled.div`
   justify-content: center;
   align-items: center;

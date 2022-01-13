@@ -1,7 +1,7 @@
 import React from 'react';
 import { faSync, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ButtonIcon, Navbar } from '~/components';
+import { ButtonIcon, IconsWeather, Navbar } from '~/components';
 import {
   Container,
   ContainerButton,
@@ -10,7 +10,6 @@ import {
   ContainerLocation,
   ContainerMaxMinTemp,
   ContainerTemp,
-  IconImage,
   TextCelsius,
   TextLocation,
   TextTemp,
@@ -18,10 +17,9 @@ import {
 
 type Props = {
   weatherData: Weather.Data;
-  icon: string;
 };
 
-const Home: React.FC<Props> = ({ weatherData, icon }) => {
+const Home: React.FC<Props> = ({ weatherData }) => {
   return (
     <Container>
       <Navbar />
@@ -41,7 +39,7 @@ const Home: React.FC<Props> = ({ weatherData, icon }) => {
             <p>{weatherData.main.temp_min}℃</p>
           </ContainerMaxMinTemp>
           <ContainerMaxMinTemp>
-            <IconImage src={icon} alt="icon" />
+            <IconsWeather icon={weatherData.weather[0].icon} />
           </ContainerMaxMinTemp>
           <ContainerMaxMinTemp>
             <p>MÁX.</p>
