@@ -36,7 +36,7 @@ const HomeContainer: FC = () => {
   useEffect(() => {
     setLoading(false);
     updateGeolocation();
-  }, [app, getWeather, updateGeolocation]);
+  }, [app, updateGeolocation]);
 
   if (!loading) {
     return <h1>carregado...</h1>;

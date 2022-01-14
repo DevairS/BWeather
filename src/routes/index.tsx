@@ -1,14 +1,15 @@
 import { FC } from 'react';
-import { Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from '~/pages';
-import Public from './public';
-import { Routes } from './routing';
+import { Path } from './routePaths';
 
 const RoutesContainer: FC = () => {
   return (
-    <Switch>
-      <Public path={Routes.HOME} component={Home} exact />
-    </Switch>
+    <BrowserRouter>
+      <Routes>
+        <Route path={Path.HOME} element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
