@@ -1,12 +1,15 @@
 import styled from 'styled-components';
-import { Fundo } from '~/assets/images';
 import { radius, shadow } from '~/theme';
 import { pxToRem } from '~/utils';
 
 const { mediumRadius } = radius;
 
-export const Container = styled.div`
-  background-image: url(${Fundo});
+interface Wallpaper {
+  wallpaperPath: string;
+}
+
+export const Container = styled.div<Wallpaper>`
+  background-image: ${(props) => `url(${props.wallpaperPath})`};
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -68,3 +71,5 @@ export const ContainerButton = styled.div`
   align-items: center;
   height: 100%;
 `;
+
+export const Text = styled.p``;

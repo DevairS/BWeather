@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { validationIcon } from '~/utils';
 import { Container, Image } from './styles';
 
@@ -6,7 +6,7 @@ type Props = {
   icon?: Icon.Name;
 };
 
-const IconsWeather: React.FC<Props> = ({ icon }) => {
+const IconsWeather: FC<Props> = ({ icon }) => {
   const [iconValid, setIconValid] = useState(icon);
   const isValid = validationIcon(icon);
   if (!isValid) {

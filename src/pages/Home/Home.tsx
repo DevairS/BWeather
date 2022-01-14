@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from 'react';
+import { observer } from 'mobx-react-lite';
 import { faSync, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonIcon, IconsWeather, Navbar } from '~/components';
@@ -10,6 +11,7 @@ import {
   ContainerLocation,
   ContainerMaxMinTemp,
   ContainerTemp,
+  Text,
   TextCelsius,
   TextLocation,
   TextTemp,
@@ -17,11 +19,13 @@ import {
 
 type Props = {
   weatherData: Weather.Data;
+  updateGeolocation(): void;
+  wallpaperPath: string;
 };
 
-const Home: React.FC<Props> = ({ weatherData }) => {
+const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
   return (
-    <Container>
+    <Container wallpaperPath={wallpaperPath}>
       <Navbar />
       <ContainerLocation>
         <TextLocation>{weatherData.name}</TextLocation>
@@ -32,20 +36,24 @@ const Home: React.FC<Props> = ({ weatherData }) => {
         <TextCelsius>℃</TextCelsius>
       </ContainerTemp>
       <ContainerClimate>
-        <p>{weatherData.weather[0].description}</p>
+        <Text>{weatherData.weather[0].description}</Text>
         <ContainerClimateDetails>
           <ContainerMaxMinTemp>
-            <p>MIN.</p>
-            <p>{weatherData.main.temp_min}℃</p>
+            <Text>MIN.</Text>
+            <Text>{weatherData.main.temp_min}℃</Text>
           </ContainerMaxMinTemp>
           <ContainerMaxMinTemp>
             <IconsWeather icon={weatherData.weather[0].icon} />
           </ContainerMaxMinTemp>
           <ContainerMaxMinTemp>
-            <p>MÁX.</p>
-            <p>{weatherData.main.temp_max}℃</p>
+            <Text>MÁX.</Text>
+            <Text>{weatherData.main.temp_max}℃</Text>
           </ContainerMaxMinTemp>
         </ContainerClimateDetails>
+      </ContainerClimate>
+      <ContainerClimate>
+        <Text>Sensação Térmica</Text>
+        <Text>{weatherData.main.feels_like}℃</Text>
       </ContainerClimate>
       <ContainerButton>
         <ButtonIcon
@@ -53,10 +61,11 @@ const Home: React.FC<Props> = ({ weatherData }) => {
           icon={faSync}
           message="Atualizar"
           colorIcon="#FFCC00"
+          onClick={updateGeolocation}
         />
       </ContainerButton>
     </Container>
   );
 };
 
-export default Home;
+export default observer(Home);

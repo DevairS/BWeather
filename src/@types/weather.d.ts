@@ -1,17 +1,17 @@
 declare namespace Weather {
+  type Condition = {
+    id: number;
+    main: string;
+    description: string;
+    icon: Icon.Name;
+  };
+
   type Data = {
     coord: {
       lon: number;
       lat: number;
     };
-    weather: [
-      {
-        id: number;
-        main: string;
-        description: string;
-        icon: Icon.Name;
-      },
-    ];
+    weather: Condition[];
     base: string;
     main: {
       temp: number;

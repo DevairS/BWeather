@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { Route } from 'react-router-dom';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   exact?: boolean;
 };
 
-const PublicRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
+const PublicRoute: FC<Props> = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
