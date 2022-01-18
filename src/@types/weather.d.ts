@@ -37,6 +37,8 @@ declare namespace Weather {
       country: string;
       sunrise: number;
       sunset: number;
+      sunriseFormat?: string;
+      sunsetFormat?: string;
     };
     timezone: number;
     id: number;

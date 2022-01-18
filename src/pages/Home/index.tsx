@@ -1,13 +1,16 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { Loading } from '~/components';
 import { validationWallpaper } from '~/utils/validation/validationWallpaper';
 import { useStores } from '../../hooks';
 import Home from './Home';
 
 const HomeContainer: FC = () => {
-  const [loading, setLoading] = useState(false);
-  const [wallpaperPath, setWallpaperPath] = useState<string>();
   const { weather, app } = useStores();
+  const [loading, setLoading] = useState(true);
+  const [wallpaperPath, setWallpaperPath] = useState<string>(
+    './wallpapers/default.png',
+  );
 
   const getWeather = useCallback(
     async (lat: number, log: number): Promise<void> => {
@@ -24,22 +27,26 @@ const HomeContainer: FC = () => {
   };
 
   const updateGeolocation = useCallback(async () => {
-    await app.setGeolocation();
-    await getWeather(
-      app.userLocation.coords.latitude,
-      app.userLocation.coords.longitude,
-    );
-    setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
-    setLoading(true);
+    try {
+      await app.setGeolocation();
+      await getWeather(
+        app.userLocation.coords.latitude,
+        app.userLocation.coords.longitude,
+      );
+      setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
+      setLoading(false);
+    } catch (error) {
+      throw new Error(error);
+    }
   }, [app, getWeather]);
 
   useEffect(() => {
-    setLoading(false);
+    setLoading(true);
     updateGeolocation();
   }, [app, updateGeolocation]);
 
-  if (!loading) {
-    return <h1>carregado...</h1>;
+  if (loading) {
+    return <Loading />;
   }
 
   return (

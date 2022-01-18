@@ -1,3 +1,4 @@
+import { Link as _Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { radius, shadow } from '~/theme';
 import { pxToRem } from '~/utils';
@@ -19,7 +20,7 @@ export const Container = styled.div<Wallpaper>`
 `;
 
 export const ContainerLocation = styled.div`
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: ${pxToRem(40)} ${pxToRem(80)};
   padding: ${pxToRem(8)};
@@ -49,6 +50,7 @@ export const TextCelsius = styled.p`
   right: 80px;
   font-size: ${pxToRem(32)};
   margin-bottom: ${pxToRem(74)};
+  text-transform: uppercase;
 `;
 
 export const ContainerClimate = styled.div`
@@ -72,4 +74,14 @@ export const ContainerButton = styled.div`
   height: 100%;
 `;
 
-export const Text = styled.p``;
+export const Text = styled.p`
+  text-transform: uppercase;
+  font-size: ${pxToRem(16)};
+`;
+
+export const Nav = styled.nav``;
+
+export const Link = styled(_Link)`
+  color: #fff;
+  text-decoration: none;
+`;

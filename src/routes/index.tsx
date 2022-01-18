@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from '~/pages';
+import { Home, Details } from '~/pages';
 import { Path } from './routePaths';
 
 const RoutesContainer: FC = () => {
@@ -8,6 +8,7 @@ const RoutesContainer: FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path={Path.HOME} element={<Home />} />
+        <Route path={Path.DETAILS} element={<Details />} />
       </Routes>
     </BrowserRouter>
   );

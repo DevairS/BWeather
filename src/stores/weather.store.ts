@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import { persist } from 'mobx-persist';
 import { WeatherApi } from '~/api';
 import { formatWeatherDate } from '~/utils';
 
@@ -10,6 +11,7 @@ class WeatherStore {
     this.weatherApi = new WeatherApi();
   }
 
+  @persist
   weatherData: Weather.Data = null;
 
   getWeather = async (lat: number, log: number): Promise<Weather.Data> => {

@@ -11,10 +11,12 @@ import {
   ContainerLocation,
   ContainerMaxMinTemp,
   ContainerTemp,
+  Nav,
   Text,
   TextCelsius,
   TextLocation,
   TextTemp,
+  Link,
 } from './styles';
 
 type Props = {
@@ -50,10 +52,9 @@ const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
             <Text>{weatherData.main.temp_max}℃</Text>
           </ContainerMaxMinTemp>
         </ContainerClimateDetails>
-      </ContainerClimate>
-      <ContainerClimate>
-        <Text>Sensação Térmica</Text>
-        <Text>{weatherData.main.feels_like}℃</Text>
+        <Nav>
+          <Link to="/details">Ver detalhes</Link>
+        </Nav>
       </ContainerClimate>
       <ContainerButton>
         <ButtonIcon
