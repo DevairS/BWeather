@@ -23,14 +23,15 @@ export default class WeatherApi {
     lon: number,
   ): Promise<Weather.Forecast[]> => {
     try {
-      const { data } = await api.get('/forecast', {
+      const { data } = await api.get('/onecall', {
         params: {
           lat,
           lon,
-          cnt: 5,
+          exclude: 'minutely,hourly,current',
         },
       });
-      return data.list;
+      console.log(data.daily);
+      return data.daily;
     } catch (error) {
       throw new Error(error);
     }

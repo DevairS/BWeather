@@ -6,15 +6,6 @@ declare namespace Weather {
     icon: Icon.Name;
   };
 
-  type Temp = {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
-
   type Data = {
     coord: {
       lon: number;
@@ -22,7 +13,14 @@ declare namespace Weather {
     };
     weather: Condition[];
     base: string;
-    main: Temp;
+    main: {
+      temp: number;
+      feels_like: number;
+      temp_min: number;
+      temp_max: number;
+      pressure: number;
+      humidity: number;
+    };
     visibility: number;
     wind: {
       speed: number;
@@ -51,17 +49,19 @@ declare namespace Weather {
 
   type Forecast = {
     dt: number;
-    dt_txt: string;
-    main: Temp;
-    pop: number;
-    sys: {
-      pod: string;
+    feels_like: {
+      day: number;
+      eve: number;
+      morn: number;
+      night: number;
     };
-    visibility: number;
-    wind: {
-      speed: number;
-      deg: number;
-      gust: number;
+    temp: {
+      day: number;
+      eve: number;
+      max: number;
+      min: number;
+      morn: number;
+      night: number;
     };
     weather: Condition[];
   };

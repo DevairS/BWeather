@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { sunriseIcon, sunsetIcon } from '~/assets/icons';
 import { IconsWeather, Navbar } from '~/components';
-import { convertDate } from '~/utils';
+import { formatStringDate, formatTimestampToDate } from '~/utils';
 import {
   Container,
   ContainerDetails,
@@ -65,13 +65,14 @@ const Details: FC<Props> = ({
           </ContainerDetailsItem>
         </ContainerDetails>
       </ContainerClimateDetails>
+      <p>Previsão do tempo</p>
       <ContainerForecast>
         {weatherForecast.map((item) => {
           return (
             <Card>
-              <p>{convertDate(item.dt, 'dd/MM')}</p>
+              <p>{formatTimestampToDate(item.dt, 'dd/MM')}</p>
               <IconsWeather icon={item.weather[0].icon} />
-              <p>{Math.round(item.main.temp)}℃</p>
+              <p>{Math.round(item.temp.day)}℃</p>
               <TextCard>{item.weather[0].description}</TextCard>
             </Card>
           );
