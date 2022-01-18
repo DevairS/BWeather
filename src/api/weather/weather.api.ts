@@ -17,4 +17,22 @@ export default class WeatherApi {
       throw new Error(error);
     }
   };
+
+  getGeoCoordinatesForecast = async (
+    lat: number,
+    lon: number,
+  ): Promise<Weather.Forecast[]> => {
+    try {
+      const { data } = await api.get('/forecast', {
+        params: {
+          lat,
+          lon,
+          cnt: 5,
+        },
+      });
+      return data.list;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 }

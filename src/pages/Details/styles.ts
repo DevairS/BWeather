@@ -25,6 +25,7 @@ export const ContainerTitle = styled.div`
   padding: ${pxToRem(16)};
   border-radius: ${largeRadius};
   justify-content: center;
+  ${shadow};
 `;
 
 export const ContainerClimateDetails = styled.div`
@@ -33,6 +34,7 @@ export const ContainerClimateDetails = styled.div`
   margin: ${pxToRem(24)};
   padding: ${pxToRem(16)};
   border-radius: ${mediumRadius};
+  ${shadow};
 `;
 
 export const ContainerDetails = styled.div`
@@ -42,15 +44,38 @@ export const ContainerDetails = styled.div`
 
 export const ContainerDetailsItem = styled.div`
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 `;
 
-export const Text = styled.p`
+export const TextTitle = styled.p`
   text-transform: uppercase;
 `;
+
+export const Text = styled.p``;
 
 export const Nav = styled.nav``;
 
 export const Link = styled(_Link)`
   color: #fff;
   text-decoration: none;
+`;
+
+export const ImageIcon = styled.img`
+  width: ${pxToRem(50)};
+`;
+
+export const ContainerForecast = styled.div``;
+
+export const Card = styled.div`
+  flex-direction: column;
+  background-color: #ffffff5c;
+  align-items: center;
+  margin: ${pxToRem(16)};
+  padding: ${pxToRem(8)};
+  border-radius: ${mediumRadius};
+`;
+
+export const TextCard = styled.div`
+  font-size: ${pxToRem(12)};
 `;

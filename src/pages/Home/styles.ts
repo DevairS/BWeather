@@ -46,8 +46,7 @@ export const TextTemp = styled.p`
 `;
 
 export const TextCelsius = styled.p`
-  position: absolute;
-  right: 80px;
+  position: relative;
   font-size: ${pxToRem(32)};
   margin-bottom: ${pxToRem(74)};
   text-transform: uppercase;

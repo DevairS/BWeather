@@ -11,13 +11,20 @@ class WeatherStore {
     this.weatherApi = new WeatherApi();
   }
 
-  @persist
+  @persist('object')
   weatherData: Weather.Data = null;
 
-  getWeather = async (lat: number, log: number): Promise<Weather.Data> => {
-    const data = await this.weatherApi.getGeoCoordinates(lat, log);
+  @persist('object')
+  weatherForecast: Weather.Forecast[] = null;
+
+  getWeather = async (lat: number, lon: number): Promise<void> => {
+    const data = await this.weatherApi.getGeoCoordinates(lat, lon);
     this.weatherData = formatWeatherDate(data);
-    return data;
+  };
+
+  getWeatherForecast = async (lat: number, lon: number): Promise<void> => {
+    const data = await this.weatherApi.getGeoCoordinatesForecast(lat, lon);
+    this.weatherForecast = data;
   };
 }
 

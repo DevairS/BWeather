@@ -13,8 +13,9 @@ const HomeContainer: FC = () => {
   );
 
   const getWeather = useCallback(
-    async (lat: number, log: number): Promise<void> => {
-      await weather.getWeather(lat, log);
+    async (lat: number, lon: number): Promise<void> => {
+      await weather.getWeather(lat, lon);
+      await weather.getWeatherForecast(lat, lon);
     },
     [weather],
   );
