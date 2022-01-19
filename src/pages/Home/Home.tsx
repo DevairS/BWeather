@@ -1,6 +1,10 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
-import { faSync, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSync,
+  faMapMarkerAlt,
+  faAngleDoubleRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonIcon, IconsWeather, Navbar } from '~/components';
 import {
@@ -45,7 +49,7 @@ const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
             <Text>{weatherData.main.temp_min}℃</Text>
           </ContainerMaxMinTemp>
           <ContainerMaxMinTemp>
-            <IconsWeather icon={weatherData.weather[0].icon} />
+            <IconsWeather icon={weatherData.weather[0].icon} sizeIcon={84} />
           </ContainerMaxMinTemp>
           <ContainerMaxMinTemp>
             <Text>MÁX.</Text>
@@ -53,7 +57,14 @@ const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
           </ContainerMaxMinTemp>
         </ContainerClimateDetails>
         <Nav>
-          <Link to="/details">Ver detalhes</Link>
+          <Link to="/details">
+            Ver detalhes{' '}
+            <FontAwesomeIcon
+              icon={faAngleDoubleRight}
+              size="lg"
+              color="#FFCC00"
+            />
+          </Link>
         </Nav>
       </ContainerClimate>
       <ContainerButton>

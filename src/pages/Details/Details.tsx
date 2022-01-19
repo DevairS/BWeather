@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
+import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { sunriseIcon, sunsetIcon } from '~/assets/icons';
 import { IconsWeather, Navbar } from '~/components';
-import { formatStringDate, formatTimestampToDate } from '~/utils';
+import { formatTimestampToDate } from '~/utils';
 import {
   Container,
   ContainerDetails,
@@ -17,6 +19,8 @@ import {
   Card,
   ContainerForecast,
   TextCard,
+  ContainerTextCard,
+  ContainerForecastTitle,
 } from './styles';
 
 type Props = {
@@ -65,21 +69,28 @@ const Details: FC<Props> = ({
           </ContainerDetailsItem>
         </ContainerDetails>
       </ContainerClimateDetails>
-      <p>Previsão do tempo</p>
+      <ContainerForecastTitle>
+        <TextTitle>Previsão para a semana</TextTitle>
+      </ContainerForecastTitle>
       <ContainerForecast>
         {weatherForecast.map((item) => {
           return (
             <Card>
               <p>{formatTimestampToDate(item.dt, 'dd/MM')}</p>
-              <IconsWeather icon={item.weather[0].icon} />
+              <IconsWeather icon={item.weather[0].icon} sizeIcon={40} />
               <p>{Math.round(item.temp.day)}℃</p>
-              <TextCard>{item.weather[0].description}</TextCard>
+              <ContainerTextCard>
+                <TextCard>{item.weather[0].description}</TextCard>
+              </ContainerTextCard>
             </Card>
           );
         })}
       </ContainerForecast>
       <Nav>
-        <Link to="/">Voltar</Link>
+        <Link to="/">
+          <FontAwesomeIcon icon={faAngleDoubleLeft} size="lg" color="#FFCC00" />
+          Voltar
+        </Link>
       </Nav>
     </Container>
   );

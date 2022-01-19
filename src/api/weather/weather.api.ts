@@ -30,7 +30,6 @@ export default class WeatherApi {
           exclude: 'minutely,hourly,current',
         },
       });
-      console.log(data.daily);
       return data.daily;
     } catch (error) {
       throw new Error(error);

@@ -54,7 +54,14 @@ export const TextTitle = styled.p`
 
 export const Text = styled.p``;
 
-export const Nav = styled.nav``;
+export const ContainerNav = styled.div``;
+
+export const Nav = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
 
 export const Link = styled(_Link)`
   color: #fff;
@@ -65,17 +72,36 @@ export const ImageIcon = styled.img`
   width: ${pxToRem(50)};
 `;
 
-export const ContainerForecast = styled.div``;
+export const ContainerForecastTitle = styled.div`
+  justify-content: center;
+`;
+export const ContainerForecast = styled.div`
+  overflow-x: scroll;
+  overflow-y: hidden;
+  justify-content: center;
+  min-height: ${pxToRem(160)};
+`;
 
 export const Card = styled.div`
+  max-width: 80px;
+  min-width: 80px;
+  height: 140px;
   flex-direction: column;
   background-color: #ffffff5c;
   align-items: center;
-  margin: ${pxToRem(16)};
+  margin: ${pxToRem(8)};
   padding: ${pxToRem(8)};
   border-radius: ${mediumRadius};
+  ${shadow};
+`;
+
+export const ContainerTextCard = styled.div`
+  height: 100%;
+  align-items: center;
 `;
 
 export const TextCard = styled.div`
   font-size: ${pxToRem(12)};
+  color: #fff;
+  text-align: center;
 `;

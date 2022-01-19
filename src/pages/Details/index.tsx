@@ -23,7 +23,6 @@ const DetailsContainer: FC = () => {
   };
 
   const setCurrentData = useCallback((): void => {
-    console.log(weather.weatherForecast);
     setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
     setLoading(false);
   }, [weather.weatherData]);
