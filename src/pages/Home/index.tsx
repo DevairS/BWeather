@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Loading } from '~/components';
+import { Alert } from '~/utils';
 import { validationWallpaper } from '~/utils/validation/validationWallpaper';
 import { useStores } from '../../hooks';
 import Home from './Home';
@@ -29,6 +30,7 @@ const HomeContainer: FC = () => {
 
   const updateGeolocation = useCallback(async () => {
     try {
+      Alert({ message: 'texto de test test test', type: 'error' });
       await app.setGeolocation();
       await getWeather(
         app.userLocation.coords.latitude,
