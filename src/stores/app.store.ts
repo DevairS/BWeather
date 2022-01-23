@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import { translateGeolocation } from '~/translate';
 
 class AppStore {
   constructor() {
@@ -16,7 +17,11 @@ class AppStore {
   }
 
   setGeolocation = async (): Promise<void> => {
-    this.userLocation = await this.getGeolocation();
+    try {
+      this.userLocation = await this.getGeolocation();
+    } catch (error) {
+      throw new Error(translateGeolocation(error.code));
+    }
   };
 }
 

@@ -1,5 +1,6 @@
 import { Link as _Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FontAwesomeIcon as _FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { radius, shadow } from '~/theme';
 import { pxToRem } from '~/utils';
 
@@ -17,6 +18,11 @@ export const Container = styled.div<Wallpaper>`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+
+  @media (max-height: 730px) {
+    height: 100%;
+    padding-bottom: 20px;
+  }
 `;
 
 export const ContainerTitle = styled.div`
@@ -26,6 +32,10 @@ export const ContainerTitle = styled.div`
   border-radius: ${largeRadius};
   justify-content: center;
   ${shadow};
+
+  @media (min-width: 1024px) {
+    margin: ${pxToRem(20)} 10%};
+  }
 `;
 
 export const ContainerClimateDetails = styled.div`
@@ -35,6 +45,10 @@ export const ContainerClimateDetails = styled.div`
   padding: ${pxToRem(16)};
   border-radius: ${mediumRadius};
   ${shadow};
+
+  @media (min-width: 1024px) {
+    margin: ${pxToRem(20)} 10%};
+  }
 `;
 
 export const ContainerDetails = styled.div`
@@ -56,11 +70,14 @@ export const Text = styled.p``;
 
 export const ContainerNav = styled.div``;
 
-export const Nav = styled.div`
+export const Nav = styled.nav`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  justify-content: flex-end;
+  margin-right: ${pxToRem(48)};
+  @media (min-width: 1024px) {
+    justify-content: center;
+    margin: 0;
+  }
 `;
 
 export const Link = styled(_Link)`
@@ -75,17 +92,26 @@ export const ImageIcon = styled.img`
 export const ContainerForecastTitle = styled.div`
   justify-content: center;
 `;
+
 export const ContainerForecast = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
-  justify-content: center;
   min-height: ${pxToRem(160)};
+
+  @media (min-width: 1024px) {
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  @media (min-width: 1080px) {
+    margin: ${pxToRem(20)} 10%};
+  }
 `;
 
 export const Card = styled.div`
   max-width: 80px;
   min-width: 80px;
-  height: 140px;
+  height: 150px;
   flex-direction: column;
   background-color: #ffffff5c;
   align-items: center;
@@ -93,6 +119,12 @@ export const Card = styled.div`
   padding: ${pxToRem(8)};
   border-radius: ${mediumRadius};
   ${shadow};
+
+  @media (min-width: 1280px) {
+    max-width: 110px;
+    min-width: 110px;
+    height: 180px;
+  }
 `;
 
 export const ContainerTextCard = styled.div`
@@ -100,8 +132,18 @@ export const ContainerTextCard = styled.div`
   align-items: center;
 `;
 
+export const CardTextItem = styled.p`
+  @media (min-width: 1280px) {
+    font-size: ${pxToRem(14)};
+  }
+`;
+
 export const TextCard = styled.div`
   font-size: ${pxToRem(12)};
   color: #fff;
   text-align: center;
+`;
+
+export const FontAwesomeIcon = styled(_FontAwesomeIcon)`
+  margin-right: 5px;
 `;

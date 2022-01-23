@@ -30,7 +30,6 @@ const HomeContainer: FC = () => {
 
   const updateGeolocation = useCallback(async () => {
     try {
-      Alert({ message: 'texto de test test test', type: 'error' });
       await app.setGeolocation();
       await getWeather(
         app.userLocation.coords.latitude,
@@ -39,7 +38,7 @@ const HomeContainer: FC = () => {
       setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
       setLoading(false);
     } catch (error) {
-      throw new Error(error);
+      Alert({ message: error.message, type: 'error' });
     }
   }, [app, getWeather]);
 

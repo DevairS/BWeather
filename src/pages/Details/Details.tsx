@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { sunriseIcon, sunsetIcon } from '~/assets/icons';
 import { IconsWeather, Navbar } from '~/components';
 import { formatTimestampToDate } from '~/utils';
@@ -21,6 +20,8 @@ import {
   TextCard,
   ContainerTextCard,
   ContainerForecastTitle,
+  CardTextItem,
+  FontAwesomeIcon,
 } from './styles';
 
 type Props = {
@@ -33,6 +34,7 @@ const Details: FC<Props> = ({
   weatherData,
   weatherForecast,
 }) => {
+  console.log(weatherForecast);
   return (
     <Container wallpaperPath={wallpaperPath}>
       <Navbar />
@@ -76,9 +78,11 @@ const Details: FC<Props> = ({
         {weatherForecast.map((item) => {
           return (
             <Card>
-              <p>{formatTimestampToDate(item.dt, 'dd/MM')}</p>
-              <IconsWeather icon={item.weather[0].icon} sizeIcon={40} />
-              <p>{Math.round(item.temp.day)}℃</p>
+              <CardTextItem>
+                {formatTimestampToDate(item.dt, 'dd/MM')}
+              </CardTextItem>
+              <IconsWeather icon={item.weather[0].icon} />
+              <CardTextItem>{Math.round(item.temp.day)}℃</CardTextItem>
               <ContainerTextCard>
                 <TextCard>{item.weather[0].description}</TextCard>
               </ContainerTextCard>

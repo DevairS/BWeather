@@ -3,11 +3,10 @@ import { validationIcon } from '~/utils';
 import { Container, Image } from './styles';
 
 type Props = {
-  icon?: Icon.Name;
-  sizeIcon?: number;
+  icon: Icon.Name;
 };
 
-const IconsWeather: FC<Props> = ({ icon, sizeIcon }) => {
+const IconsWeather: FC<Props> = ({ icon }) => {
   const [iconValid, setIconValid] = useState(icon);
   const isValid = validationIcon(icon);
   if (!isValid) {
@@ -16,12 +15,7 @@ const IconsWeather: FC<Props> = ({ icon, sizeIcon }) => {
 
   return (
     <Container>
-      <Image
-        src={`/icons/${iconValid}.svg`}
-        alt="weatherIcon"
-        width={sizeIcon}
-        height={sizeIcon}
-      />
+      <Image src={`/icons/${iconValid}.svg`} alt="weatherIcon" />
     </Container>
   );
 };
