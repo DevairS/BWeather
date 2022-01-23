@@ -117,7 +117,7 @@ export const ContainerButton = styled.div`
   align-items: center;
   height: 100%;
   @media (max-height: 600px) {
-    padding: 20px 0;
+    padding: ${pxToRem(20)} 0;
   }
 `;
 

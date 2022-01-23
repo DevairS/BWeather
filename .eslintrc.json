@@ -77,7 +77,8 @@
         "no-shadow": "off",
         "react/jsx-props-no-spreading": "off",
         "react/require-default-props": "off",
-        "react/react-in-jsx-scope" : "off"
+        "react/react-in-jsx-scope" : "off",
+        "no-nested-ternary": "off"
     },
     "settings": {
         "import/resolver": {

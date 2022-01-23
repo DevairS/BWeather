@@ -37,6 +37,7 @@ const HomeContainer: FC = () => {
       );
       setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
       setLoading(false);
+      Alert({ message: 'Atualizado com sucesso', type: 'success' });
     } catch (error) {
       Alert({ message: error.message, type: 'error' });
     }

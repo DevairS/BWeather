@@ -6,24 +6,24 @@ interface Snackbar {
 }
 
 export const Wrapper = styled.div<Snackbar>`
+  display: flex;
+  align-items: center;
   width: 250px;
   margin-top: 16px;
   margin-left: 16px;
   position: absolute;
   color: #fff;
-  background-color: #f44336;
-  display: flex;
+  background-color: ${(props) =>
+    props.type === 'error'
+      ? '#D32F2F'
+      : props.type === 'success'
+      ? '#2E7D32'
+      : props.type === 'info'
+      ? '#0288D1'
+      : '#ED6C02'};
   padding: 6px 6px;
   border-radius: 4px;
-  ${(props) =>
-    props.show
-      ? {
-          animationName: 'slideInLeft',
-        }
-      : {
-          animationName: 'slideOutLeft',
-        }}
-
+  animation-name: ${(props) => (props.show ? 'slideInLeft' : 'slideOutLeft')};
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -48,7 +48,7 @@ export const Wrapper = styled.div<Snackbar>`
   }
 
   @media (max-width: 500px) {
-    width: 190px;
+    width: 140px;
   }
 `;
 
@@ -56,4 +56,9 @@ export const Alert = styled.p`
   padding: 6px 16px;
   font-size: 0.875rem;
   font-weight: 400;
+
+  @media (max-width: 400px) {
+    font-size: 0.5rem;
+    padding: 2px 8px;
+  }
 `;

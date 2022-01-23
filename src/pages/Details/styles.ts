@@ -21,7 +21,7 @@ export const Container = styled.div<Wallpaper>`
 
   @media (max-height: 730px) {
     height: 100%;
-    padding-bottom: 20px;
+    padding-bottom: ${pxToRem(20)};
   }
 `;
 
@@ -109,9 +109,9 @@ export const ContainerForecast = styled.div`
 `;
 
 export const Card = styled.div`
-  max-width: 80px;
-  min-width: 80px;
-  height: 150px;
+  max-width: ${pxToRem(80)};
+  min-width: ${pxToRem(80)};
+  height: ${pxToRem(150)};
   flex-direction: column;
   background-color: #ffffff5c;
   align-items: center;
@@ -121,9 +121,9 @@ export const Card = styled.div`
   ${shadow};
 
   @media (min-width: 1280px) {
-    max-width: 110px;
-    min-width: 110px;
-    height: 180px;
+    max-width: ${pxToRem(110)};
+    min-width: ${pxToRem(100)};
+    height: ${pxToRem(180)};
   }
 `;
 
@@ -145,5 +145,5 @@ export const TextCard = styled.div`
 `;
 
 export const FontAwesomeIcon = styled(_FontAwesomeIcon)`
-  margin-right: 5px;
+  margin-right: ${pxToRem(5)};
 `;
