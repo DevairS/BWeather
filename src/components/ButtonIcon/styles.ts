@@ -6,7 +6,7 @@ const { mediumRadius } = radius;
 
 export const Button = styled.button`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   min-width: ${pxToRem(150)};
   border: none;
@@ -14,8 +14,14 @@ export const Button = styled.button`
   background-color: #ffffff5c;
   padding: ${pxToRem(4)} ${pxToRem(8)};
   color: #fff;
-  font-size: ${pxToRem(20)};
+  font-size: ${pxToRem(16)};
   ${shadow}
+
+  @media (min-width:768px) {
+    font-size: ${pxToRem(20)};
+  }
 `;
 
-export const Text = styled.p``;
+export const Text = styled.p`
+  padding-right: ${pxToRem(4)};
+`;

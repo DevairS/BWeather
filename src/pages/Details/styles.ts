@@ -33,9 +33,14 @@ export const ContainerTitle = styled.div`
   justify-content: center;
   ${shadow};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     margin: ${pxToRem(20)} 10%};
   }
+
+  @media(min-width: 1601px){
+    margin: ${pxToRem(20)} 20%};
+  }
+
 `;
 
 export const ContainerClimateDetails = styled.div`
@@ -46,8 +51,12 @@ export const ContainerClimateDetails = styled.div`
   border-radius: ${mediumRadius};
   ${shadow};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     margin: ${pxToRem(20)} 10%};
+  }
+
+  @media(min-width: 1601px){
+    margin: ${pxToRem(20)} 20%};
   }
 `;
 
@@ -96,15 +105,14 @@ export const ContainerForecastTitle = styled.div`
 export const ContainerForecast = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
-  min-height: ${pxToRem(160)};
 
-  @media (min-width: 1024px) {
-    overflow: hidden;
-    justify-content: center;
+  @media (min-width: 1200px) {
+    margin: ${pxToRem(20)} 10%};
   }
 
-  @media (min-width: 1080px) {
-    margin: ${pxToRem(20)} 10%};
+  @media (min-width: 1260px) {
+    overflow: hidden;
+    justify-content: center;
   }
 `;
 
@@ -119,11 +127,19 @@ export const Card = styled.div`
   padding: ${pxToRem(8)};
   border-radius: ${mediumRadius};
   ${shadow};
-
-  @media (min-width: 1280px) {
+  @media (min-width: 1200px) {
     max-width: ${pxToRem(110)};
-    min-width: ${pxToRem(100)};
-    height: ${pxToRem(180)};
+    min-width: ${pxToRem(110)};
+  }
+
+  @media (min-width: 1366px) {
+    max-width: ${pxToRem(120)};
+    min-width: ${pxToRem(120)};
+  }
+
+  @media (min-width: 1601px) {
+    max-width: ${pxToRem(130)};
+    min-width: ${pxToRem(130)};
   }
 `;
 
@@ -133,7 +149,7 @@ export const ContainerTextCard = styled.div`
 `;
 
 export const CardTextItem = styled.p`
-  @media (min-width: 1280px) {
+  @media (min-width: 1200px) {
     font-size: ${pxToRem(14)};
   }
 `;
@@ -146,4 +162,11 @@ export const TextCard = styled.div`
 
 export const FontAwesomeIcon = styled(_FontAwesomeIcon)`
   margin-right: ${pxToRem(5)};
+`;
+
+export const ContainerIcon = styled.div`
+  width: 100%;
+  @media (min-width: 1200px) {
+    width: 75%;
+  }
 `;

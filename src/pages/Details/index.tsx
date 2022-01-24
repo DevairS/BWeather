@@ -5,21 +5,19 @@ import { validationWallpaper } from '~/utils/validation/validationWallpaper';
 import { useStores } from '../../hooks';
 import Details from './Details';
 
-// import { Container } from './styles';
-
 const DetailsContainer: FC = () => {
   const { weather } = useStores();
   const [loading, setLoading] = useState(true);
 
   const [wallpaperPath, setWallpaperPath] = useState<string>(
-    './wallpapers/default.png',
+    './wallpapers/default.jpg',
   );
 
   const handlePathWallpaper = (condition: Weather.Condition): string => {
     const wallpaperName = `${condition.main}-${condition.icon}`;
     const isValid = validationWallpaper(wallpaperName);
-    if (!isValid) return './wallpapers/default.png';
-    return `./wallpapers/${wallpaperName}.png`;
+    if (!isValid) return './wallpapers/default.jpg';
+    return `./wallpapers/${wallpaperName}.jpg`;
   };
 
   const setCurrentData = useCallback((): void => {

@@ -1,28 +1,22 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
+import ClimateDetails from './ClimateDetails';
 import {
-  faSync,
-  faMapMarkerAlt,
-  faAngleDoubleRight,
-} from '@fortawesome/free-solid-svg-icons';
-import { ButtonIcon, Navbar } from '~/components';
-import {
+  ButtonIcon,
   Container,
   ContainerButton,
   ContainerClimate,
-  ContainerClimateDetails,
   ContainerLocation,
-  ContainerMaxMinTemp,
   ContainerTemp,
+  FontAwesomeIcon,
+  FontAwesomeIconDetail,
+  Link,
   Nav,
+  Navbar,
   Text,
   TextCelsius,
   TextLocation,
   TextTemp,
-  Link,
-  FontAwesomeIcon,
-  FontAwesomeIconDetail,
-  IconsWeather,
 } from './styles';
 
 type Props = {
@@ -37,7 +31,7 @@ const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
       <Navbar />
       <ContainerLocation>
         <TextLocation>{weatherData.name}</TextLocation>
-        <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" color="#FFCC00" />
+        <FontAwesomeIcon />
       </ContainerLocation>
       <ContainerTemp>
         <TextTemp>{weatherData.main.temp}</TextTemp>
@@ -45,38 +39,20 @@ const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
       </ContainerTemp>
       <ContainerClimate>
         <Text>{weatherData.weather[0].description}</Text>
-        <ContainerClimateDetails>
-          <ContainerMaxMinTemp>
-            <Text>MIN.</Text>
-            <Text>{weatherData.main.temp_min}℃</Text>
-          </ContainerMaxMinTemp>
-          <ContainerMaxMinTemp>
-            <IconsWeather icon={weatherData.weather[0].icon} />
-          </ContainerMaxMinTemp>
-          <ContainerMaxMinTemp>
-            <Text>MÁX.</Text>
-            <Text>{weatherData.main.temp_max}℃</Text>
-          </ContainerMaxMinTemp>
-        </ContainerClimateDetails>
+        <ClimateDetails
+          tempMin={weatherData.main.temp_min}
+          tempMax={weatherData.main.temp_max}
+          icon={weatherData.weather[0].icon}
+        />
       </ContainerClimate>
       <Nav>
         <Link to="/details">
           Ver detalhes
-          <FontAwesomeIconDetail
-            icon={faAngleDoubleRight}
-            size="lg"
-            color="#FFCC00"
-          />
+          <FontAwesomeIconDetail />
         </Link>
       </Nav>
       <ContainerButton>
-        <ButtonIcon
-          type="button"
-          icon={faSync}
-          message="Atualizar"
-          colorIcon="#FFCC00"
-          onClick={updateGeolocation}
-        />
+        <ButtonIcon onClick={updateGeolocation}>Atualizar</ButtonIcon>
       </ContainerButton>
     </Container>
   );

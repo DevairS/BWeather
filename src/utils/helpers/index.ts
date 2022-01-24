@@ -1,4 +1,3 @@
-export * from './formatTimestampToDate';
-export * from './formatWeatherDate';
 export * from './pxToRem';
+export * from './format';
 export { default as Alert } from './Alert';

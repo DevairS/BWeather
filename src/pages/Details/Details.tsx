@@ -22,6 +22,7 @@ import {
   ContainerForecastTitle,
   CardTextItem,
   FontAwesomeIcon,
+  ContainerIcon,
 } from './styles';
 
 type Props = {
@@ -34,7 +35,6 @@ const Details: FC<Props> = ({
   weatherData,
   weatherForecast,
 }) => {
-  console.log(weatherForecast);
   return (
     <Container wallpaperPath={wallpaperPath}>
       <Navbar />
@@ -81,7 +81,9 @@ const Details: FC<Props> = ({
               <CardTextItem>
                 {formatTimestampToDate(item.dt, 'dd/MM')}
               </CardTextItem>
-              <IconsWeather icon={item.weather[0].icon} />
+              <ContainerIcon>
+                <IconsWeather icon={item.weather[0].icon} />
+              </ContainerIcon>
               <CardTextItem>{Math.round(item.temp.day)}℃</CardTextItem>
               <ContainerTextCard>
                 <TextCard>{item.weather[0].description}</TextCard>

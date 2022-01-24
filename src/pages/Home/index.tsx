@@ -1,16 +1,16 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Loading } from '~/components';
-import { Alert } from '~/utils';
+import { useStores } from '~/hooks';
+import { Alert, formatWallpaperName } from '~/utils';
 import { validationWallpaper } from '~/utils/validation/validationWallpaper';
-import { useStores } from '../../hooks';
 import Home from './Home';
 
 const HomeContainer: FC = () => {
   const { weather, app } = useStores();
   const [loading, setLoading] = useState(true);
   const [wallpaperPath, setWallpaperPath] = useState<string>(
-    './wallpapers/default.png',
+    './wallpapers/default.jpg',
   );
 
   const getWeather = useCallback(
@@ -21,11 +21,13 @@ const HomeContainer: FC = () => {
     [weather],
   );
 
-  const handlePathWallpaper = (condition: Weather.Condition): string => {
-    const wallpaperName = `${condition.main}-${condition.icon}`;
+  const handlePathWallpaper = (condition: Weather.Condition[]): string => {
+    const wallpaperName = formatWallpaperName(
+      `${condition[0].main}-${condition[0].icon}`,
+    );
     const isValid = validationWallpaper(wallpaperName);
-    if (!isValid) return './wallpapers/default.png';
-    return `./wallpapers/${wallpaperName}.png`;
+    if (!isValid) return './wallpapers/default.jpg';
+    return `./wallpapers/${wallpaperName}.jpg`;
   };
 
   const updateGeolocation = useCallback(async () => {
@@ -35,18 +37,18 @@ const HomeContainer: FC = () => {
         app.userLocation.coords.latitude,
         app.userLocation.coords.longitude,
       );
-      setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
+      setWallpaperPath(handlePathWallpaper(weather.weatherData.weather));
       setLoading(false);
       Alert({ message: 'Atualizado com sucesso', type: 'success' });
     } catch (error) {
       Alert({ message: error.message, type: 'error' });
     }
-  }, [app, getWeather]);
+  }, [app, getWeather, weather]);
 
   useEffect(() => {
     setLoading(true);
     updateGeolocation();
-  }, [app, updateGeolocation]);
+  }, [updateGeolocation]);
 
   if (loading) {
     return <Loading />;

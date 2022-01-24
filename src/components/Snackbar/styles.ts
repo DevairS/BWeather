@@ -47,7 +47,7 @@ export const Wrapper = styled.div<Snackbar>`
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 140px;
   }
 `;
@@ -57,7 +57,7 @@ export const Alert = styled.p`
   font-size: 0.875rem;
   font-weight: 400;
 
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     font-size: 0.5rem;
     padding: 2px 8px;
   }
