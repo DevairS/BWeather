@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { validationIcon } from '~/utils';
 import { Container, Image } from './styles';
 

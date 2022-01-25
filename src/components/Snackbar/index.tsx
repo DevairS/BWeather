@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {
-  faExclamationCircle,
-  faExclamationTriangle,
-  faQuestionCircle,
-  faCheckCircle,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Wrapper, Alert } from './styles';
+import { FC, useEffect, useState } from 'react';
+import { Wrapper, Alert, FontAwesomeIcon } from './styles';
 
 type TypeOptions = 'info' | 'success' | 'warning' | 'error';
 
@@ -16,7 +9,7 @@ type Props = {
   id: string;
 };
 
-const Snackbar: React.FC<Props> = ({ message, type, id }) => {
+const Snackbar: FC<Props> = ({ message, type, id }) => {
   const [show, setShow] = useState(true);
   const toastContainerElement: HTMLElement | null =
     document.getElementById('toastContainer');
@@ -34,22 +27,14 @@ const Snackbar: React.FC<Props> = ({ message, type, id }) => {
     }
   }, [toastContainerElement]);
 
-  const icon =
-    type === 'info'
-      ? faQuestionCircle
-      : type === 'success'
-      ? faCheckCircle
-      : type === 'error'
-      ? faExclamationCircle
-      : faExclamationTriangle;
   return (
     <Wrapper id={id} key={id} show={show} type={type}>
-      <FontAwesomeIcon icon={icon} color="#fff" />
+      <FontAwesomeIcon type={type} />
       <Alert>{message}</Alert>
     </Wrapper>
   );
 };
 
-export const SnackbarProvider: React.FC = () => <div id="toastContainer" />;
+export const SnackbarProvider: FC = () => <div id="toastContainer" />;
 
 export default Snackbar;

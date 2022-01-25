@@ -1,15 +1,17 @@
 import styled from 'styled-components';
+import { Navbar as _Navbar } from '~/components';
 import { pxToRem } from '~/utils';
 
 export const Container = styled.div`
+  width: 100%;
   flex-direction: column;
-  background-image: url('./wallpapers/Clear-01d.png');
+  background-image: url('./wallpapers/Clear-01d.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
 `;
+
+export const Navbar = styled(_Navbar)``;
 
 export const ContainerText = styled.div`
   height: 100%;

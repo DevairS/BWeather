@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
-import { IconBuilders } from '~/assets/svg';
+import { FC } from 'react';
 import { Container, Image } from './styles';
 
 const Navbar: FC = () => {
   return (
     <Container>
-      <Image src={IconBuilders} alt="buildersIcon" />
+      <Image />
     </Container>
   );
 };

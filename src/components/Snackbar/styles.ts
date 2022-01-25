@@ -1,7 +1,15 @@
 import styled from 'styled-components';
+import {
+  faExclamationCircle,
+  faExclamationTriangle,
+  faQuestionCircle,
+  faCheckCircle,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon as _FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface Snackbar {
-  show: boolean;
+  show?: boolean;
   type: 'info' | 'success' | 'warning' | 'error';
 }
 
@@ -13,14 +21,19 @@ export const Wrapper = styled.div<Snackbar>`
   margin-left: 16px;
   position: absolute;
   color: #fff;
-  background-color: ${(props) =>
-    props.type === 'error'
-      ? '#D32F2F'
-      : props.type === 'success'
-      ? '#2E7D32'
-      : props.type === 'info'
-      ? '#0288D1'
-      : '#ED6C02'};
+  background-color: ${({ type }) => {
+    switch (type) {
+      case 'info':
+        return '#0288D1';
+      case 'success':
+        return '#2E7D32';
+      case 'error':
+        return '#D32F2F';
+      case 'warning':
+      default:
+        return '#ED6C02';
+    }
+  }};
   padding: 6px 6px;
   border-radius: 4px;
   animation-name: ${(props) => (props.show ? 'slideInLeft' : 'slideOutLeft')};
@@ -62,3 +75,22 @@ export const Alert = styled.p`
     padding: 2px 8px;
   }
 `;
+
+export const FontAwesomeIcon = styled(_FontAwesomeIcon).attrs(({ type }) => {
+  const icon = (): IconDefinition => {
+    switch (type) {
+      case 'info':
+        return faQuestionCircle;
+      case 'success':
+        return faCheckCircle;
+      case 'error':
+        return faExclamationCircle;
+      case 'warning':
+      default:
+        return faExclamationTriangle;
+    }
+  };
+  return {
+    icon: icon(),
+  };
+})<Snackbar>``;

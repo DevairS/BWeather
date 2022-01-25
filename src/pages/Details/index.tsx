@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Loading } from '~/components';
-import { validationWallpaper } from '~/utils/validation/validationWallpaper';
+import { formatWallpaperName, validationWallpaper } from '~/utils';
 import { useStores } from '../../hooks';
 import Details from './Details';
 
@@ -14,7 +14,9 @@ const DetailsContainer: FC = () => {
   );
 
   const handlePathWallpaper = (condition: Weather.Condition): string => {
-    const wallpaperName = `${condition.main}-${condition.icon}`;
+    const wallpaperName = formatWallpaperName(
+      `${condition.main}-${condition.icon}`,
+    );
     const isValid = validationWallpaper(wallpaperName);
     if (!isValid) return './wallpapers/default.jpg';
     return `./wallpapers/${wallpaperName}.jpg`;

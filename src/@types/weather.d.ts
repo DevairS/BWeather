@@ -15,9 +15,9 @@ declare namespace Weather {
     base: string;
     main: {
       temp: number;
-      feels_like: number;
-      temp_min: number;
-      temp_max: number;
+      feelsLike: number;
+      tempMin: number;
+      tempMax: number;
       pressure: number;
       humidity: number;
     };
@@ -36,10 +36,8 @@ declare namespace Weather {
       id: number;
       message: number;
       country: string;
-      sunrise: number;
-      sunset: number;
-      sunriseFormat?: string;
-      sunsetFormat?: string;
+      sunrise: string;
+      sunset: string;
     };
     timezone: number;
     id: number;

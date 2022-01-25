@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon as _FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { radius, shadow } from '~/theme';
 import { pxToRem } from '~/utils';
 
@@ -25,3 +26,5 @@ export const Button = styled.button`
 export const Text = styled.p`
   padding-right: ${pxToRem(4)};
 `;
+
+export const FontAwesomeIcon = styled(_FontAwesomeIcon)``;

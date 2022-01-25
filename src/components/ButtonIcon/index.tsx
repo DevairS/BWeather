@@ -1,7 +1,6 @@
 import { FC, MouseEventHandler } from 'react';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Text } from './styles';
+import { Button, FontAwesomeIcon, Text } from './styles';
 
 type Props = {
   type: 'button' | 'submit' | 'reset';

@@ -11,6 +11,7 @@ type Props = {
   tempMax: number;
   icon: Icon.Name;
 };
+
 const ClimateDetails: FC<Props> = ({ tempMin, tempMax, icon }) => {
   return (
     <ContainerClimateDetails>

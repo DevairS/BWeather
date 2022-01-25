@@ -1,4 +1,4 @@
-export const validationIcon = (icon: string): boolean => {
+export default function validationIcon(icon: string): boolean {
   const iconsValid: Icon.Name[] = [
     '01d',
     '02d',
@@ -22,4 +22,4 @@ export const validationIcon = (icon: string): boolean => {
   const valid = iconsValid.find((elem) => elem === icon);
   if (valid) return true;
   return false;
-};
+}

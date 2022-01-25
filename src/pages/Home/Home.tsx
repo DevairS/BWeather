@@ -40,8 +40,8 @@ const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
       <ContainerClimate>
         <Text>{weatherData.weather[0].description}</Text>
         <ClimateDetails
-          tempMin={weatherData.main.temp_min}
-          tempMax={weatherData.main.temp_max}
+          tempMin={weatherData.main.tempMin}
+          tempMax={weatherData.main.tempMax}
           icon={weatherData.weather[0].icon}
         />
       </ContainerClimate>

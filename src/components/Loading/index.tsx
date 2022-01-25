@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { Navbar } from '..';
-import { Container, ContainerText, Text } from './styles';
+import { Container, ContainerText, Text, Navbar } from './styles';
 
 const Loading: FC = () => {
   return (

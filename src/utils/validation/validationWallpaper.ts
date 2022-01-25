@@ -1,4 +1,4 @@
-export const validationWallpaper = (wallpaper: string): boolean => {
+export default function validationWallpaper(wallpaper: string): boolean {
   const wallpaperValid: Wallpaper.Name[] = [
     'Thunderstorm-11d',
     'Drizzle-09d',
@@ -13,4 +13,4 @@ export const validationWallpaper = (wallpaper: string): boolean => {
   const valid = wallpaperValid.find((elem) => elem === wallpaper);
   if (valid) return true;
   return false;
-};
+}

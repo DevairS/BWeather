@@ -2,8 +2,7 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Loading } from '~/components';
 import { useStores } from '~/hooks';
-import { Alert, formatWallpaperName } from '~/utils';
-import { validationWallpaper } from '~/utils/validation/validationWallpaper';
+import { Alert, formatWallpaperName, validationWallpaper } from '~/utils';
 import Home from './Home';
 
 const HomeContainer: FC = () => {
