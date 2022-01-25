@@ -9,14 +9,12 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Open Sans', sans-serif;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
   }
   #root {
     width: 100vw;
     min-height: 100vh;
   }
-  input, button {
+  input, button, p, h1, h2, h3, h4, h5, h6, div {
     font-family: 'Open Sans', sans-serif;
   }
   button {

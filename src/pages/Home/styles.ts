@@ -51,8 +51,7 @@ export const FontAwesomeIcon = styled(_FontAwesomeIcon).attrs({
   size: 'lg',
   color: '#FFCC00',
 })`
-  position: absolute;
-  margin-left: ${pxToRem(150)};
+  margin-left: ${pxToRem(5)};
 `;
 
 export const TextLocation = styled.p`
