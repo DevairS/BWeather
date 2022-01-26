@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { Provider } from 'mobx-react';
 import ReactDOM from 'react-dom';
 import { Firebase } from '~/services';
@@ -11,13 +11,13 @@ import { GlobalStyle } from './theme';
 const firebase = new Firebase();
 firebase.initializeFirebase();
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Provider rootStore={store}>
       <GlobalStyle />
       <SnackbarProvider />
       <Routes />
     </Provider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root'),
 );
 reportWebVitals();

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { runInAction, makeAutoObservable } from 'mobx';
 import { persist } from 'mobx-persist';
 import { WeatherApi } from '~/api';
 import { formatWeatherDate } from '~/utils';
@@ -19,12 +19,16 @@ class WeatherStore {
 
   getWeather = async (lat: number, lon: number): Promise<void> => {
     const data = await this.weatherApi.getGeoCoordinates(lat, lon);
-    this.weatherData = formatWeatherDate(data);
+    runInAction(() => {
+      this.weatherData = formatWeatherDate(data);
+    });
   };
 
   getWeatherForecast = async (lat: number, lon: number): Promise<void> => {
     const data = await this.weatherApi.getGeoCoordinatesForecast(lat, lon);
-    this.weatherForecast = data;
+    runInAction(() => {
+      this.weatherForecast = data;
+    });
   };
 }
 

@@ -25,7 +25,7 @@ const Forecast: FC<Props> = ({ weatherForecast }) => {
       <ContainerForecast>
         {weatherForecast.map((item) => {
           return (
-            <Card>
+            <Card key={`weather-forecast-item-${item.dt}`}>
               <CardTextItem>
                 {formatTimestampToDate(item.dt, 'dd/MM')}
               </CardTextItem>

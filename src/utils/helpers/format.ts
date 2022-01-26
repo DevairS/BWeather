@@ -23,7 +23,9 @@ export const formatWallpaperName = (name: string): string => {
   }
 };
 
-export const formatWeatherDate = (weather: Weather.Current): Weather.Current => {
+export const formatWeatherDate = (
+  weather: Weather.Current,
+): Weather.Current => {
   return {
     ...weather,
     main: {

@@ -36,9 +36,7 @@ class AppStore {
       `${condition.main}-${condition.icon}`,
     );
     const isValid = validationWallpaper(wallpaperName);
-    console.log(isValid);
     if (!isValid) this.wallpaperPath = `${urlWallpaper}default.jpg`;
-
     this.wallpaperPath = `${urlWallpaper}${wallpaperName}.jpg`;
   };
 }

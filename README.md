@@ -3,10 +3,10 @@
 ## 📱 Telas do projeto
 
 </br>
-<div style="display:flex; width: 100%; justify-content: space-evenly" >
-  <img width="180px" alt="home" src="https://bweather-site.s3.sa-east-1.amazonaws.com/Telas/home.png">
-  <img width="180px" alt="details" src="https://bweather-site.s3.sa-east-1.amazonaws.com/Telas/details.png">
-</div>
+<p align='center' >
+  <img width="180px" alt="home" src="https://bweather-site.s3.sa-east-1.amazonaws.com/Telas/image+1.png">
+  <img width="180px" alt="details" src="https://bweather-site.s3.sa-east-1.amazonaws.com/Telas/image+2.png">
+</p>
 </br>
 </br>
 
@@ -51,10 +51,6 @@ $ yarn start
 - Faça push para a sua branch: `git push -u origin name-feature`.
 
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
-
-## Licença
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 

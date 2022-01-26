@@ -8,7 +8,6 @@ import Home from './Home';
 const HomeContainer: FC = () => {
   const { weather, app } = useStores();
   const [loading, setLoading] = useState(true);
-  const [blockGeolocation, setBlockGeolocation] = useState(false);
 
   const getWeather = useCallback(
     async (lat: number, lon: number): Promise<void> => {
@@ -31,7 +30,6 @@ const HomeContainer: FC = () => {
       app.setWallpaperPath(weather.weatherData.weather[0]);
       Alert({ message: 'Atualizado com sucesso', type: 'success' });
     } catch (error) {
-      setBlockGeolocation(true);
       Alert({ message: error.message, type: 'error' });
     } finally {
       setLoading(false);
