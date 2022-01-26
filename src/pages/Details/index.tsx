@@ -14,12 +14,13 @@ const DetailsContainer: FC = () => {
   );
 
   const handlePathWallpaper = (condition: Weather.Condition): string => {
+    const urlWallpaper = process.env.REACT_APP_S3_URL_WALLPAPER;
     const wallpaperName = formatWallpaperName(
       `${condition.main}-${condition.icon}`,
     );
     const isValid = validationWallpaper(wallpaperName);
-    if (!isValid) return './wallpapers/default.jpg';
-    return `./wallpapers/${wallpaperName}.jpg`;
+    if (!isValid) return `${urlWallpaper}default.jpg`;
+    return `${urlWallpaper}${wallpaperName}.jpg`;
   };
 
   const setCurrentData = useCallback((): void => {

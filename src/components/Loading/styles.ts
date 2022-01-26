@@ -5,7 +5,7 @@ import { pxToRem } from '~/utils';
 export const Container = styled.div`
   width: 100%;
   flex-direction: column;
-  background-image: url('./wallpapers/Clear-01d.jpg');
+  background-image: url('./wallpapers/default.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,5 +20,7 @@ export const ContainerText = styled.div`
 `;
 
 export const Text = styled.p`
+  margin: 0 ${pxToRem(40)};
+  text-align: center;
   font-size: ${pxToRem(18)};
 `;

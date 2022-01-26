@@ -8,25 +8,29 @@ import Home from './Home';
 const HomeContainer: FC = () => {
   const { weather, app } = useStores();
   const [loading, setLoading] = useState(true);
+  const [blockGeolocation, setBlockGeolocation] = useState(false);
   const [wallpaperPath, setWallpaperPath] = useState<string>(
     './wallpapers/default.jpg',
   );
 
   const getWeather = useCallback(
     async (lat: number, lon: number): Promise<void> => {
-      await weather.getWeather(lat, lon);
-      await weather.getWeatherForecast(lat, lon);
+      await Promise.all([
+        weather.getWeather(lat, lon),
+        weather.getWeatherForecast(lat, lon),
+      ]);
     },
     [weather],
   );
 
-  const handlePathWallpaper = (condition: Weather.Condition[]): string => {
+  const handlePathWallpaper = (condition: Weather.Condition): string => {
+    const urlWallpaper = process.env.REACT_APP_S3_URL_WALLPAPER;
     const wallpaperName = formatWallpaperName(
-      `${condition[0].main}-${condition[0].icon}`,
+      `${condition.main}-${condition.icon}`,
     );
     const isValid = validationWallpaper(wallpaperName);
-    if (!isValid) return './wallpapers/default.jpg';
-    return `./wallpapers/${wallpaperName}.jpg`;
+    if (!isValid) return `${urlWallpaper}default.jpg`;
+    return `${urlWallpaper}${wallpaperName}.jpg`;
   };
 
   const updateGeolocation = useCallback(async () => {
@@ -36,10 +40,11 @@ const HomeContainer: FC = () => {
         app.userLocation.coords.latitude,
         app.userLocation.coords.longitude,
       );
-      setWallpaperPath(handlePathWallpaper(weather.weatherData.weather));
+      setWallpaperPath(handlePathWallpaper(weather.weatherData.weather[0]));
       setLoading(false);
       Alert({ message: 'Atualizado com sucesso', type: 'success' });
     } catch (error) {
+      setBlockGeolocation(true);
       Alert({ message: error.message, type: 'error' });
     }
   }, [app, getWeather, weather]);
@@ -50,7 +55,7 @@ const HomeContainer: FC = () => {
   }, [updateGeolocation]);
 
   if (loading) {
-    return <Loading />;
+    return <Loading blockGeolocation={blockGeolocation} />;
   }
 
   return (
