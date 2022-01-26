@@ -5,7 +5,7 @@ export default class WeatherApi {
   getGeoCoordinates = async (
     lat: number,
     lon: number,
-  ): Promise<Weather.Data> => {
+  ): Promise<Weather.Current> => {
     try {
       const { data } = await api.get('/weather', {
         params: {

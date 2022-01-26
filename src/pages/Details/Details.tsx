@@ -13,17 +13,12 @@ import {
 } from './styles';
 
 type Props = {
-  wallpaperPath: string;
-  weatherData: Weather.Data;
+  weatherData: Weather.Current;
   weatherForecast: Weather.Forecast[];
 };
-const Details: FC<Props> = ({
-  wallpaperPath,
-  weatherData,
-  weatherForecast,
-}) => {
+const Details: FC<Props> = ({ weatherData, weatherForecast }) => {
   return (
-    <Container wallpaperPath={wallpaperPath}>
+    <Container>
       <Navbar />
       <ContainerTitle>
         <TextTitle>Detalhes do clima</TextTitle>

@@ -1,19 +1,12 @@
 import { FC } from 'react';
 import { Container, ContainerText, Text, Navbar } from './styles';
 
-type Props = {
-  blockGeolocation?: boolean;
-};
-const Loading: FC<Props> = ({ blockGeolocation }) => {
+const Loading: FC = () => {
   return (
     <Container>
       <Navbar />
       <ContainerText>
-        <Text>
-          {blockGeolocation
-            ? 'Por favor, libere a localização do seu navegador para ter acesso ao conteúdo da aplicação'
-            : 'Atualizando...'}
-        </Text>
+        <Text>Atualizando...</Text>
       </ContainerText>
     </Container>
   );

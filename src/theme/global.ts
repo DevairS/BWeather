@@ -14,7 +14,7 @@ export default createGlobalStyle`
     width: 100vw;
     min-height: 100vh;
   }
-  input, button, p, h1, h2, h3, h4, h5, h6, div {
+  input, button {
     font-family: 'Open Sans', sans-serif;
   }
   button {

@@ -12,7 +12,7 @@ class WeatherStore {
   }
 
   @persist('object')
-  weatherData: Weather.Data = null;
+  weatherData: Weather.Current = null;
 
   @persist('object')
   weatherForecast: Weather.Forecast[] = null;

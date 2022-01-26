@@ -20,14 +20,13 @@ import {
 } from './styles';
 
 type Props = {
-  weatherData: Weather.Data;
+  weatherData: Weather.Current;
   updateGeolocation(): void;
-  wallpaperPath: string;
 };
 
-const Home: FC<Props> = ({ weatherData, updateGeolocation, wallpaperPath }) => {
+const Home: FC<Props> = ({ weatherData, updateGeolocation }) => {
   return (
-    <Container wallpaperPath={wallpaperPath}>
+    <Container>
       <Navbar />
       <ContainerLocation>
         <TextLocation>{weatherData.name}</TextLocation>

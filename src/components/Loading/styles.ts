@@ -4,11 +4,8 @@ import { pxToRem } from '~/utils';
 
 export const Container = styled.div`
   width: 100%;
+  height: 100vh;
   flex-direction: column;
-  background-image: url('./wallpapers/default.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 export const Navbar = styled(_Navbar)``;

@@ -12,18 +12,10 @@ import { pxToRem } from '~/utils';
 
 const { mediumRadius } = radius;
 
-interface Wallpaper {
-  wallpaperPath: string;
-}
-
 export const Navbar = styled(_Navbar)``;
 
-export const Container = styled.div<Wallpaper>`
+export const Container = styled.div`
   width: 100%;
-  background-image: ${(props) => `url(${props.wallpaperPath})`};
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   flex-direction: column;
 `;
 
