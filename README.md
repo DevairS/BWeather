@@ -35,6 +35,8 @@ $ git clone https://github.com/DevairS/BWeather.git
 # Go into the repository
 $ cd bweather
 
+# copy and paste file .env.example and rename for .env
+
 # Install dependencies
 $ yarn
 
