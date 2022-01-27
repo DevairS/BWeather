@@ -48,7 +48,11 @@ export const FontAwesomeIcon = styled(_FontAwesomeIcon).attrs({
 
 export const TextLocation = styled.p`
   text-transform: uppercase;
-  font-size: ${pxToRem(24)};
+  text-align: center;
+  font-size: ${pxToRem(16)};
+  @media (min-width: 768px) {
+    font-size: ${pxToRem(24)};
+  }
 `;
 
 export const ContainerTemp = styled.div`
@@ -56,7 +60,6 @@ export const ContainerTemp = styled.div`
   justify-content: center;
   align-items: center;
   margin: ${pxToRem(5)} 0};
-
   @media (min-width: 768px) {
     margin: 0;
   }
